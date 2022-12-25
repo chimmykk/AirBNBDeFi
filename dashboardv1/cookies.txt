@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.polkastarter.com	TRUE	/	FALSE	1999999999	_polkastarter_web_session	hQhgl27g3clF23LSAiIaCD2myNr6vgUDGjT7HATXEj0HV9VL7CI6mUje7quXvGRDSsLgqxHY%2Fl9PtsB6zsHC%2BhLVhJHSTzUHB7UzCNKDH9ah%2BgA9Ow1IqR%2BdA%2BwUhJLx15CVVPoV8KzY0wkPfBQX3Z6zjZLTOVz3sBXPN8TwNPFiC3fcZ8GIVqDLIki%2BwKE8tSUxXFiqgfPjEgkm4dmI%2Bu%2BtH1jLftarXctYJgqY6D9oHNm0JIKWoSCscCY9wIHuyCCo42Lc9Gvp03Rpa1O5H07KkW1HG1%2BvmSPiFZWnqEnh--v38jj3DBP%2F4To7bF--zbxBhMx%2FLLQVptxIoMiSQg%3D%3D
+
